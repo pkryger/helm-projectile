@@ -1490,10 +1490,12 @@ a prefix argument, then ask for TYPES."
   "Use active region or a symbol at point as a third element in ARGS.
 This function has been designed as an advice to `helm-grep-ag-1'.  Do not
 use directly."
-  (pcase-let ((`(,directory ,type ,input) args))
-    (list directory
-          type
-          (or input helm-projectile--ag-input))))
+  (pcase-let ((`(,directory ,type ,input . ,rest) args))
+    (append
+     (list directory
+           type
+           (or input helm-projectile--ag-input))
+     rest)))
 
 ;; When calling `helm', the function `helm-grep-ag' uses symbol at point as an
 ;; argument `:default-input' (via `helm-sources-using-default-as-input').  This
