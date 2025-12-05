@@ -2,6 +2,9 @@
 
 ## master (unreleased)
 
+* Don't break advised function `helm-grep-ag-1` when adding automatic input for AG searches.
+* Add maintainer e-mail address.
+
 ## 1.4.0 (2025-09-02)
 
 ### New features
